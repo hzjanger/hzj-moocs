@@ -1,0 +1,34 @@
+.flex-remainning-space {
+  //使用flex填满剩余空间
+  flex: 1 1 auto;
+}
+
+
+.header-nav span {
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.header-nav a {
+  margin-right: 1rem;
+  color: #ffffff;
+}
+
+
+.header-nav a:hover {
+  color: #ff0000;
+  text-decoration: none;
+}
+
+.search-form {
+  width: 25%;
+}
+
+.search-form .search-full-width {
+  width: 100%;
+}
+.search-icon {
+  cursor: pointer;
+  position: relative;
+  top: .5rem;
+}
