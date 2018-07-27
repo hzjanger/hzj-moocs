@@ -7,6 +7,8 @@
 .header-nav span {
   cursor: pointer;
   margin-right: 1rem;
+  margin-left: 1rem;
+  outline: none;
 }
 
 .header-nav a {
@@ -18,6 +20,10 @@
 .header-nav a:hover {
   color: #ff0000;
   text-decoration: none;
+}
+
+.header-nav a.active {
+  color: #ff0000;
 }
 
 .search-form {
