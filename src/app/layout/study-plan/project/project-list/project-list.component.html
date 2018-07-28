@@ -1,0 +1,15 @@
+<!--子组件向父组件传递的事件item 和 invite-->
+<app-project-item *ngFor="let project of projects"
+                  [item]="project"
+                  class="card"
+                  (invite)="launchInviteDialog()"
+                  (edit)="launchEditDialog()" (delete)="launchConfirmDialog()">
+
+</app-project-item>
+<button mat-fab type="button" (click)="openNewProjectDialog()" class="add-button">
+  <mat-icon>add</mat-icon>
+</button>
+
+
+
+
