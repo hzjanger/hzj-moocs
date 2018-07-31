@@ -1,0 +1,123 @@
+<div class="course-detail-header">
+  <div class="container">
+    <div class="row" *ngIf="courseDetail">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-lg course-detail-nav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="#" class="nav-link">课程</a>
+              <span>\</span>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">前端开发</a>
+              <span>\</span>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">JavaScript</a>
+              <span>\</span>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Typescript</a>
+            </li>
+          </ul>
+          <div class="navbar-nav-right">
+            <mat-icon svgIcon="star-border"></mat-icon>
+            <span>收藏</span>
+          </div>
+        </nav>
+      </div>
+      <div class="col-12 course-name">
+        <h4>{{courseDetail.coursename}}</h4>
+      </div>
+      <div class="col-12 course-detail-header-footer">
+        <div class="img-box">
+          <div>
+            <img [src]="courseDetail.teacherpicturepath" class="img-fluid">
+          </div>
+          <div>
+            <p>{{courseDetail.teachername}}</p>
+            <p>{{courseDetail.teacherjob}}</p>
+          </div>
+        </div>
+        <div class="course-detail-grade">
+          <div>
+            <span>难度</span>{{courseDetail.coursedifficulty}}
+          </div>
+          <div>
+            <span>时长</span>{{courseDetail.coursetime}}
+          </div>
+          <div>
+            <span>学习人数</span>{{courseDetail.coursestudypeople}}
+          </div>
+          <div>
+            <span>综合评价</span>9.9
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bg-light">
+  <div class="container">
+    <div class="row" *ngIf="courseDetail">
+      <div class="col-9">
+        <mat-tab-group dynamicHeight>
+          <mat-tab label="课程章节">
+            <div class="container">
+              <div class="row">
+                <div class="col-12 course-introduction-box">
+                  {{courseDetail.coursesummary}}
+                </div>
+                <div class="col-12 course-chapter-list" *ngFor="let course of course_list">
+                  <div class="course-chapter-list-header">
+                    <h5>{{course.course_chapter_name}}</h5>
+                    <p>{{course.course_chapter_introduction}}</p>
+                  </div>
+                  <div class="course-directory-list" *ngFor="let course_directory of course.directory">
+                    <a href="#">
+                      <mat-icon svgIcon="play-circle"></mat-icon>
+                      <span>{{course_directory.course_directory}}</span>
+                    </a>
+                    <div>
+                      <mat-icon [svgIcon]="course_directory.course_status"></mat-icon>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab label="问答评论">
+            <app-answer-comment></app-answer-comment>
+          </mat-tab>
+          <mat-tab label="同学笔记">
+            biji
+          </mat-tab>
+          <mat-tab label="用户评价">
+            <app-course-assess></app-course-assess>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+      <div class="col-3">
+        <div class="course-progress bg-white">
+          <h5>已学 30%<span>学习耗时2小时14分</span></h5>
+          <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+          <p class="study-course">上次学至 2-2 Hello Angular CLI</p>
+          <button mat-raised-button color="primary">继续学习</button>
+          <p class="course-help">课程须知</p>
+          <ol class="course-help-list">
+            <li>本课程Angular CLI的入门课程，依赖的前端基础较少</li>
+            <li>课程建议边看边练，从实战中获得真正的提高。</li>
+          </ol>
+          <p class="course-help">老师告诉你能学到什么？</p>
+          <ol class="course-help-list">
+            <li>Angular CLI 功能与常用参数</li>
+            <li>使用Angular CLI 高效构建angular 2项目</li>
+            <li>了解前端组件的概念</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
