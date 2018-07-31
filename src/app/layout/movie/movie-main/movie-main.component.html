@@ -1,0 +1,138 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 remove-padding">
+      <ngb-carousel>
+        <ng-template ngbSlide *ngFor="let img of carouseImg">
+          <div class="row justify-center" [style.background-color]="img.color">
+            <div class="col-7 remove-padding">
+              <img [src]="img.img" alt="Random first slide" class="brandImg" >
+            </div>
+            <div class="col-2 remove-padding">
+              <div class="img-box">
+                <img src="assets/img/code-bg.jpg" alt="Random first01 slide" class="brandImg">
+              </div>
+              <div class="study-day-box">
+                <span>1</span>分钟
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+  </div>
+</div>
+<div class="bg-light course-box">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="title">实战推荐</h4>
+      </div>
+      <div class="col-3">
+        <app-course-list [course]="courses"></app-course-list>
+      </div>
+      <div class="col-3">
+        <app-course-list [course]="courses"></app-course-list>
+      </div>
+      <div class="col-3">
+        <app-course-list [course]="courses"></app-course-list>
+      </div>
+      <div class="col-3">
+        <app-course-list [course]="courses"></app-course-list>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="bg-white  course-box">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="title">新上好课</h4>
+      </div>
+
+      <div class="col-3">
+        <app-course-list [course]="courses"></app-course-list>
+      </div>
+      <div class="col-3">
+        <app-course-list [course]="courses"></app-course-list>
+      </div>
+      <div class="col-3">
+        <app-course-list [course]="courses"></app-course-list>
+      </div>
+      <div class="col-3">
+        <app-course-list [course]="courses"></app-course-list>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-light  course-box">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="title">新手入门</h4>
+      </div>
+      <div class="col-3">
+        <app-course-list [course]="courses"></app-course-list>
+      </div>
+      <div class="col-3">
+        <app-course-list [course]="courses"></app-course-list>
+      </div>
+      <div class="col-3">
+        <app-course-list [course]="courses"></app-course-list>
+      </div>
+      <div class="col-3">
+        <app-course-list [course]="courses"></app-course-list>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="bg-white  course-box">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="title">技能提升</h4>
+      </div>
+      <div class="col-3">
+        <app-course-list [course]="courses"></app-course-list>
+      </div>
+      <div class="col-3">
+        <app-course-list [course]="courses"></app-course-list>
+      </div>
+      <div class="col-3">
+        <app-course-list [course]="courses"></app-course-list>
+      </div>
+      <div class="col-3">
+        <app-course-list [course]="courses"></app-course-list>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="bg-light course-box">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="title">前沿技术</h4>
+      </div>
+      <div class="col-3">
+        <app-course-list [course]="courses"></app-course-list>
+      </div>
+      <div class="col-3">
+        <app-course-list [course]="courses"></app-course-list>
+      </div>
+      <div class="col-3">
+        <app-course-list [course]="courses"></app-course-list>
+      </div>
+      <div class="col-3">
+        <app-course-list [course]="courses"></app-course-list>
+      </div>
+    </div>
+  </div>
+</div>
+
