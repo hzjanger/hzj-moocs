@@ -1,0 +1,81 @@
+<div class="bg-light">
+  <div class="container do-homework-box bg-white">
+    <div class="row">
+      <div class="col-12 do-homework-header">
+        <div class="do-homework-header-left">
+          <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+          <span>1/10</span>
+        </div>
+        <div class="do-homework-header-right">
+          <mat-icon>pause_circle_outline</mat-icon>
+          <h4>00:00:00</h4>
+        </div>
+      </div>
+      <div class="col-12 choice-type">
+        <h4>
+          <mat-icon svgIcon="help" style="color: #ff652f;"></mat-icon>
+          <span>[单选题]</span>
+        </h4>
+      </div>
+      <div class="col-12 choice-box">
+        <p>下面哪一个标符可以产生一个表行？</p>
+        <div>
+          <mat-radio-group>
+            <div class="radio">
+              <mat-radio-button value="1">Option 1</mat-radio-button>
+            </div>
+            <div class="radio">
+              <mat-radio-button value="3">Option 1</mat-radio-button>
+            </div>
+            <div class="radio">
+              <mat-radio-button value="2">Option 1</mat-radio-button>
+            </div>
+            <div class="radio">
+              <mat-radio-button value="4">Option 1</mat-radio-button>
+            </div>
+          </mat-radio-group>
+
+        </div>
+        <div class="choice-box-bottom">
+          <div>
+            <span>收藏本题</span>
+            <span>标记一下</span>
+            <span>屏蔽本题</span>
+          </div>
+          <div class="choice-box-bottom-right">
+            <button mat-raised-button color="accent">提前交卷</button>
+            <button mat-raised-button color="primary">下一题</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 do-homework-bottom">
+        <mat-accordion>
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                               (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-description>
+                {{panelOpenState ? '收起答题卡' : '展开答题卡'}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div>
+              <button mat-raised-button>1</button>
+              <button mat-raised-button>1</button>
+              <button mat-raised-button>1</button>
+              <button mat-raised-button>1</button>
+              <button mat-raised-button>1</button>
+              <button mat-raised-button>1</button>
+              <button mat-raised-button>1</button>
+              <button mat-raised-button>1</button>
+              <button mat-raised-button>1</button>
+
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
