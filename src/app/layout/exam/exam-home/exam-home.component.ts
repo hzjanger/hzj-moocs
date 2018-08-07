@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog} from '@angular/material';
-import {ChoiceDifficultComponent} from '../choice-difficult/choice-difficult.component';
-import {Router} from '@angular/router';
+import {CourseBaseInfo} from '../../../entity/course-base-info';
+import {ExamTypeService} from '../../../service/exam-type.service';
+import {ExamType} from '../../../entity/exam-type';
+
 @Component({
   selector: 'app-exam-home',
   templateUrl: './exam-home.component.html',
@@ -9,64 +10,39 @@ import {Router} from '@angular/router';
 })
 export class ExamHomeComponent implements OnInit {
 
+  examType: ExamType[];
 
-  selected = '前端工程师';
+  courseImgUrl: string = "assets/img/carousel/";
+  carouseImg: any[] = [
+    {img: this.courseImgUrl+"Offer神器.jpeg", color: "rgb(21, 119, 228)"},
+    {img: this.courseImgUrl+"校招算法题.jpeg", color: "rgb(254, 206, 20)"},
+    {img: this.courseImgUrl+"笔试干货.jpeg", color: "rgb(37, 33, 94)"},
+    {img: this.courseImgUrl+"牛客职播.png", color: "rgb(25, 114, 233)"},
+    {img: this.courseImgUrl+"笔经面经.jpg", color: "rgb(71, 80, 89)"},
+  ];
 
-  chartOption = {
-    tooltip: {
-      trigger: 'axis'
-    },
-
-    radar: [
-      {
-        indicator: [
-          {text: 'javaScript', max: '100'},
-          {text: 'Jquery', max: '100'},
-          {text: 'Html/Css', max: '100'},
-          {text: 'Linux', max: '100'},
-          {text: '网络基础', max: '100'}
-        ],
-        center: ['50%', '30%'],
-        radius: 80,
-        shape: 'circle',
-      }
-
-    ],
-    series: [
-      {
-        type: 'radar',
-        tooltip: {
-          trigger: 'item'
-        },
-        itemStyle: {normal: {areaStyle: {type: 'default'}}},
-        data: [
-          {
-            value: [60,73,85,40, 60],
-            name: '某软件'
-          }
-        ]
-      }
-    ]
-  };
-
-  constructor(private dialog: MatDialog,
-              private router: Router) { }
+  specialPracticeImgUrl: string = 'assets/img/special practice/';
+  issues: any[] = [
+    {img: this.specialPracticeImgUrl + 'java.png', title: 'Java工程师能力评估', link: 'summary'},
+    {img: this.specialPracticeImgUrl + 'c++.png', title: 'C/C++工程师能力评估', link: 'summary'},
+    {img: this.specialPracticeImgUrl + 'android.png', title: 'Android工程师能力评估  ', link: 'summary'},
+    {img: this.specialPracticeImgUrl + 'iso.png', title: 'iOS工程师能力评估', link: 'summary'},
+    {img: this.specialPracticeImgUrl + 'html.png', title: '前端工程师能力评估', link: 'summary'},
+    {img: this.specialPracticeImgUrl + 'math.png', title: '算法工程师能力评估', link: 'summary'},
+    {img: this.specialPracticeImgUrl + 'php.png', title: 'PHP工程师能力评估', link: 'summary'},
+    {img: this.specialPracticeImgUrl + 'linux.png', title: '运维工程师能力评估', link: 'summary'},
+  ];
+  constructor(private examTypeService: ExamTypeService) { }
 
   ngOnInit() {
+    this.getExamType();
   }
 
-  launchChoiceDialog() {
-    const dialogRef = this.dialog.open(ChoiceDifficultComponent, {
-      width: '75%'
-    });
-
-    dialogRef.afterClosed()
-      .subscribe(result => {
-        console.log(result);
-        if (result) {
-          this.router.navigate(["/exam/homework"]);
-        }
+  getExamType() {
+    this.examTypeService.getExamType()
+      .subscribe((data: ExamType[]) => {
+        this.examType = data;
+        console.log(this.examType);
       })
   }
-
 }
