@@ -1,8 +1,8 @@
-import {CourseBaseInfo} from './course-base-info';
-import {Sort} from './sort';
+import {Content} from './content';
 
-export class freeCourse {
-  content: CourseBaseInfo[];    //课程基本信息
+export class CommentPage {
+  content: Content[];           //评论内容
+  sort: any[];
   last: boolean;                //时候是最后一页
   first: boolean;               //是否是第一页
   number: number;               //所在的页数

@@ -1,3 +1,6 @@
+import {Label} from './label';
+import {Directory} from './directory';
+
 export interface coursenew {
   /**
    * 课程序号, 唯一标识
@@ -10,7 +13,7 @@ export interface coursenew {
   /**
    * 课程类型
    */
-  coursetype: string[];
+  coursetype: string;
   /**
    * 课程时长
    */
@@ -54,11 +57,11 @@ export interface coursenew {
   /**
    * 课程须知
    */
-  coursenotes: string[];
+  coursenotes: string;
   /**
    * 老师告诉你能学到什么?
    */
-  learncontent: string[];
+  learncontent: string;
   /**
    * 热门专题标签
    */
@@ -66,5 +69,7 @@ export interface coursenew {
   /**
    *　课程章节详细信息
    */
-  chapter: string[];
+  chapter: string;
+  //课程评价等级
+  courseoverallrating: string;
 }
