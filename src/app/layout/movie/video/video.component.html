@@ -1,5 +1,5 @@
 <mat-drawer-container class="video-box" autosize>
-  <mat-drawer #drawer mode="side" position="end" class="course-menu-box">
+  <mat-drawer #drawer1 mode="over" position="end" class="course-menu-box">
     <mat-nav-list>
       <mat-list-item>
         <a matLine href="#">第一章</a>
@@ -36,7 +36,7 @@
       </div>
       <!--视频播放的右边-->
       <div class="video-content-right">
-        <button mat-icon-button (click)="showMenu(drawer)">
+        <button mat-icon-button (click)="showMenu(drawer1)">
           <mat-icon>{{arrow}}</mat-icon>
         </button>
       </div>
