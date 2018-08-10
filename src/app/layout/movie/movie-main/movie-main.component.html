@@ -1,26 +1,55 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-12 remove-padding">
-      <ngb-carousel>
-        <ng-template ngbSlide *ngFor="let img of carouseImg">
-          <div class="row justify-center" [style.background-color]="img.color">
-            <div class="col-7 remove-padding">
-              <img [src]="img.img" alt="Random first slide" class="brandImg" >
-            </div>
-            <div class="col-2 remove-padding">
-              <div class="img-box">
-                <img src="assets/img/code-bg.jpg" alt="Random first01 slide" class="brandImg">
+<div class="content-box">
+  <div class="container">
+    <div class="row carousel-box">
+      <div class="col-2 menu-list">
+        <mat-nav-list>
+          <mat-list-item
+            *ngFor="let menu of menu_link"
+            (mouseenter)="showMenu(menu.value, $event)"
+            (mouseleave)="showMenu('', $event)">
+            <a matLine>{{menu.value}}</a>
+          </mat-list-item>
+        </mat-nav-list>
+      </div>
+      <div class="col-9 menu-right remove-padding">
+        <div>
+          <ngb-carousel (mouseenter)="enterCarousel()">
+            <ng-template ngbSlide *ngFor="let img of carouseImg">
+              <div class="row carousel-img-box">
+                <div class="col-12 remove-padding">
+                  <img [src]="img.img" alt="Random first slide" class="img-fluid">
+                </div>
               </div>
-              <div class="study-day-box">
-                <span>1</span>分钟
+            </ng-template>
+          </ngb-carousel>
+          <div class="coursel-bottom">
+            <div *ngFor="let direction of directions">
+              <i [class]="direction.className"></i>
+              <div class="tit">{{direction.title}}</div>
+              <div>{{direction.subtitle}}</div>
+            </div>
+          </div>
+        </div>
+        <div *ngFor="let menus of second_menu">
+          <div class="bg-white second-menu"
+               [ngClass]="{
+                  'block': menus.ascription === show_menu,
+                  'none': menus.ascription !== show_menu}"
+               (mouseenter)="showMenu(menus.ascription, $event)"
+               (mouseleave)="showMenu('', $event)">
+            <div *ngFor="let menu of menus.menu">
+              <h5 class="second-menu-title">{{menu.title}}</h5>
+              <div class="link-box">
+                <a *ngFor="let directions of menu.value" [routerLink]="['/study/freeCourse']" [queryParams]="{direction: directions.link}">{{directions.direction}}</a>
               </div>
             </div>
           </div>
-        </ng-template>
-      </ngb-carousel>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
 <div class="bg-light course-box">
   <div class="container">
     <div class="row">

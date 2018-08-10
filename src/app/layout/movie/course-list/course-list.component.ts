@@ -1,11 +1,13 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {CourseBaseInfo} from '../../../entity/course-base-info';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-course-list',
   templateUrl: './course-list.component.html',
   styleUrls: ['./course-list.component.scss'],
+  encapsulation: ViewEncapsulation.None,
   animations: [
     trigger('courseState', [
       state('inactive', style({
@@ -40,9 +42,13 @@ export class CourseListComponent implements OnInit {
     // console.log('2 == ' + this.state);
   }
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  routeClick(coursetailnum: string) {
+    this.router.navigate(['/study/learn', coursetailnum])
   }
 
 }

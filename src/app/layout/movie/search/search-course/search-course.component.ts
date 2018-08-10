@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Search} from '../../../../entity/search';
 
 @Component({
   selector: 'app-search-course',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-course.component.scss']
 })
 export class SearchCourseComponent implements OnInit {
+
+  @Input() courses: Search;
 
   constructor() { }
 

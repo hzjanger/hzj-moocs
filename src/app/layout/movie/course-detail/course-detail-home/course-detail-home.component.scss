@@ -1,3 +1,6 @@
+button {
+  outline: none;
+}
 .course-detail-nav {
   justify-content: space-between;
 }
@@ -6,12 +9,17 @@
 }
 
 .course-detail-header .navbar-nav .nav-item span, .course-detail-nav .navbar-nav .nav-link {
+  cursor: pointer;
   color: rgba(255, 255, 255, .5);
   font-size: .9rem;
 }
 
 .course-detail-nav .navbar-nav .nav-link:hover {
   color: #ffffff;
+}
+
+.course-detail-nav a.nav-link {
+  cursor: pointer;
 }
 
 .course-detail-header {
@@ -55,9 +63,6 @@
   color: #ffffff;
 }
 
-.img-box div {
-  max-width: 50%;
-}
 
 .img-box>div:last-child {
   display: flex;
@@ -193,7 +198,8 @@
 
 .course-progress .course-help-list {
   margin: 0;
-  padding: 0 0 0 1rem;
+  padding: 0;
+  list-style: none;
   font-size: .8rem;
   color: #5e5e5e;
   line-height: 1.5rem;

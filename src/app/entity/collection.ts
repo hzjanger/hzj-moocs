@@ -6,7 +6,7 @@ export class Collection {
   usernickname: string;       //用户昵称
   coursepicture: string;      //图片路径
   coursename: string;         //课程名
-  update: string;             //更新时间
+  changedate: string;             //更新时间
   studied: string;            //进度
   spendtime: string;          //花费分钟
   studytochapter: string;     //学到的章节

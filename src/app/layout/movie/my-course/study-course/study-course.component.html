@@ -6,20 +6,20 @@
         <mat-tab label="最近学习">
           <div class="row study-course-list-box" *ngFor="let course of course_list">
             <div class="col-3">
-              <img [src]="course.course_img" class="img-fluid">
+              <img [src]="course.coursepicture" class="img-fluid">
             </div>
             <div class="col-9">
-              <h5 class="my-course-title">{{course.course_name}}<span>{{course.status}}</span></h5>
+              <h5 class="my-course-title">{{course.coursename}}<span>{{course.changedate}}</span></h5>
               <p class="course-list-detail-box">
-                <span>已学{{course.progress}}</span>
-                <span>用时{{course.use_time}}</span>
-                <span>学习至{{course.study}}</span>
+                <span>已学&nbsp;&nbsp;{{course.studied}}</span>
+                <span>用时&nbsp;&nbsp;{{course.spendtime}}</span>
+                <span>学习至&nbsp;&nbsp;{{course.studytochapter}}</span>
               </p>
               <div class="course-list-footer-box">
                 <p>
-                  <a href="#">笔记{{course.note}}</a>
-                  <a href="#">代码{{course.code}}</a>
-                  <a href="#">问答{{course.answer}}</a>
+                  <a href="#">笔记&nbsp;&nbsp;{{course.notenumber}}</a>
+                  <a href="#">代码&nbsp;&nbsp;{{course.codenumber}}</a>
+                  <a href="#">问答&nbsp;&nbsp;{{course.questionnumber}}</a>
                 </p>
                 <button mat-raised-button color="primary">继续学习</button>
               </div>

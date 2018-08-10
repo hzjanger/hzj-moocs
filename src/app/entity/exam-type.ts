@@ -27,5 +27,7 @@ export class ExamType {
    * 总分
    */
   totalscore: string;
+
+  tailnum: string;  //试卷尾号
   exam: any;          //这个数据是空的, 不用管
 }

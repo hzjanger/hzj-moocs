@@ -32,12 +32,16 @@ mat-card p span, .free-course-summaru {
 .free-course-summaru {
   margin-right: 0;
   text-align: left;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  width: 100%;
   overflow: hidden;
-  -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  //display: -webkit-box;
+  //-webkit-box-orient: vertical;
+  //-webkit-line-clamp: 3;
+  //overflow: hidden;
+  //-ms-text-overflow: ellipsis;
+  //text-overflow: ellipsis;
 }
 .center {
   display: flex;
@@ -52,4 +56,3 @@ mat-card p span, .free-course-summaru {
   color: #93999F;
   margin-right: .2rem;
 }
-

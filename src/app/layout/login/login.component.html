@@ -5,13 +5,14 @@
         <mat-tab-group dynamicHeight [selectedIndex]="selectedIndex">
           <mat-tab label="登录">
             <div>
-              <form (submit)="onSubmit()" [formGroup]="login">
+              <form (submit)="loginClick(login, $event)" [formGroup]="login">
                 <mat-dialog-content>
                   <mat-form-field>
-                    <input matInput placeholder="手机号或邮箱" formGroupName="user">
+                    <input matInput placeholder="手机号或邮箱" formControlName="user">
+                    <mat-error *ngIf="login.controls['user'].invalid">{{getErrorMessage()}}</mat-error>
                   </mat-form-field>
                   <mat-form-field>
-                    <input matInput placeholder="密码">
+                    <input matInput type="password" placeholder="密码" formControlName="password">
                   </mat-form-field>
                 </mat-dialog-content>
                 <div class="auto-login-box">
@@ -19,33 +20,41 @@
                   <a href="#">忘记密码</a>
                 </div>
                 <div>
-                  <button mat-raised-button color="primary" type="submit" class="login-button">登录</button>
+                  <button mat-raised-button color="primary" type="submit" class="login-button" [disabled]="!login.valid">登录</button>
                 </div>
               </form>
             </div>
           </mat-tab>
           <mat-tab label="注册" isActive="true">
             <div>
-              <form>
+              <form [formGroup]="register">
                 <mat-dialog-content>
                   <mat-form-field>
-                    <input matInput placeholder="手机或邮箱" value="">
+                    <input matInput placeholder="手机或邮箱" formControlName="phone">
                   </mat-form-field>
                   <mat-form-field>
-                    <input matInput type="password" placeholder="设置密码" value="">
+                    <input matInput type="password" placeholder="设置密码" formControlName="password">
                   </mat-form-field>
                   <mat-form-field>
-                    <input matInput type="password" placeholder="确认密码" value="">
+                    <input matInput type="password" placeholder="确认密码" formControlName="rePassword">
                   </mat-form-field>
                   <div class="verification">
                     <mat-form-field id="verification-input">
                       <input matInput type="text" placeholder="验证码" value="">
                     </mat-form-field>
-                    <button mat-raised-button>获取验证吗</button>
+                    <button
+                      mat-raised-button
+                      (click)="getVerification(register, $event)"
+                      [disabled]="!register.valid">获取验证吗</button>
                   </div>
                 </mat-dialog-content>
                 <div>
-                  <button mat-raised-button color="primary" type="submit" class="login-button">注册</button>
+                  <button
+                    mat-raised-button
+                    color="primary"
+                    type="submit"
+                    class="login-button"
+                    (click)="registerClick(register, $event)">注册</button>
                 </div>
               </form>
             </div>

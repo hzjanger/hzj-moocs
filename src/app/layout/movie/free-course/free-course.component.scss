@@ -60,7 +60,14 @@ button {
   background: transparent;
 }
 
+a.nav-link {
+  cursor: pointer;
+}
 
+a.nav-link:hover {
+  color: #ff0000;
+}
 
-
-
+a.active {
+  color: #ff0000;
+}

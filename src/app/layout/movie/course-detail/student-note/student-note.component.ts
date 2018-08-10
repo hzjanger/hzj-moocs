@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentNoteComponent implements OnInit {
 
+  select_chip: string = '最新';
+
   constructor() { }
 
   ngOnInit() {

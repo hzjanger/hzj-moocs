@@ -7,6 +7,10 @@ import {NgxEchartsModule} from 'ngx-echarts';
 import { ChoiceDifficultComponent } from './choice-difficult/choice-difficult.component';
 import { DoHomeworkComponent } from './do-homework/do-homework.component';
 import {SharedModule} from '../shared/shared.module';
+import { LoginExamHomeComponent } from './login-exam-home/login-exam-home.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { SummaryComponent } from './summary/summary.component';
+import { AnswerAnalysisComponent } from './answer-analysis/answer-analysis.component';
 
 
 @NgModule({
@@ -14,13 +18,16 @@ import {SharedModule} from '../shared/shared.module';
     CommonModule,
     SharedModule,
     ExamRoutingModule,
-    NgxEchartsModule
-
+    NgxEchartsModule,
+    NgbModule
   ],
   declarations: [
     ExamHomeComponent,
     ChoiceDifficultComponent,
-    DoHomeworkComponent
+    DoHomeworkComponent,
+    LoginExamHomeComponent,
+    SummaryComponent,
+    AnswerAnalysisComponent
   ],
   entryComponents: [
     ChoiceDifficultComponent

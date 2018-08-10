@@ -42,7 +42,7 @@ export class FreeCourseService {
           catchError(this.handleError<freeCourse>('getNewCourseByCondition'))
         )
     } else {
-      const url = `/olcp/course/allnewcourses/sortbylast1?direction=${direction}&difficulty=${difficult}&page=${page}`;
+      const url = `/olcp/course/allnewcourses/sortbylast1?direction=${direction}&coursedifficulty=${difficult}&page=${page}`;
       return this.http.get<freeCourse>(url)
         .pipe(
           catchError(this.handleError<freeCourse>('getNewCourseByCondition'))
@@ -80,7 +80,7 @@ export class FreeCourseService {
           catchError(this.handleError<freeCourse>('getNewCourseByCondition'))
         )
     } else {
-      const url = `/olcp/course/allhotcourses/sortbypop1?direction=${direction}&difficulty=${difficult}&page=${page}`;
+      const url = `/olcp/course/allhotcourses/sortbypop1?direction=${direction}&coursedifficulty=${difficult}&page=${page}`;
       return this.http.get<freeCourse>(url)
         .pipe(
           catchError(this.handleError<freeCourse>('getNewCourseByCondition'))

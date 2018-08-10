@@ -5,7 +5,7 @@
 }
 
 //:host就表示当前样式模板的宿主元素。 注意：默认情况下，自定义组件的display属性是空字符串的，也就是不占据空间著作权归作者所有。
-:host {
+.list-container-box {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

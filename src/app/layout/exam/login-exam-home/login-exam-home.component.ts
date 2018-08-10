@@ -65,7 +65,7 @@ export class LoginExamHomeComponent implements OnInit {
         if (result) {
           this.router.navigate(["/exam/homework"]);
         }
-      })
+      });
   }
 
 

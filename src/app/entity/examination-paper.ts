@@ -8,7 +8,7 @@ export class ExaminationPaper {
   pro: Topic;
   protype: string;
   tailnum: number;
-  proname: string;
+  proname: string;    //题目名称
   kind: string;
   problem: any;       //这个不用管
 }

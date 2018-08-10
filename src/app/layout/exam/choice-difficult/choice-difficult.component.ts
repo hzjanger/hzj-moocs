@@ -23,7 +23,7 @@ export class ChoiceDifficultComponent implements OnInit {
     {amount: '20题', value: 20 },
     {amount: '30题', value: 30 },
 
-  ]
+  ];
 
 
   constructor(public dialogRef: MatDialogRef<LoginComponent>,

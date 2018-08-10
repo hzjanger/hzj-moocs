@@ -33,7 +33,8 @@ export class LoginService {
    * @returns {Observable<any>}
    */
   register(user: User) :Observable<any> {
-    const url = `/olcp/user/register`;
+    const url = `/olcp/user/add`;
+    console.log(user);
     return this.http.post<any>(url, user);
   }
 
@@ -43,10 +44,8 @@ export class LoginService {
    * @returns {Observable<any>}
    */
   sendEmail(email: string): Observable<any> {
-    const url = `/olcp/email/send?receiver=1305696249@qq.com
-`;
+    const url = `/olcp/email/send?receiver=${email}`;
     return this.http.get<any>(url);
-
   }
 
 

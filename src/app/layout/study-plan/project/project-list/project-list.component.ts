@@ -1,23 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostBinding, OnInit} from '@angular/core';
 import {InviteComponent} from '../invite/invite.component';
 import {MatDialog} from '@angular/material';
 import {NewProjectComponent} from '../new-project/new-project.component';
-import {consoleTestResultHandler} from 'tslint/lib/test';
 import {ConfirmDialogComponent} from '../../../shared/confirm-dialog/confirm-dialog.component';
+import {slideToRight} from '../../../../anims/router.anim';
+import {listAnimation} from '../../../../anims/list.anim';
 
 @Component({
   selector: 'app-project-list',
   templateUrl: './project-list.component.html',
-  styleUrls: ['./project-list.component.scss']
+  styleUrls: ['./project-list.component.scss'],
+  animations: [
+    slideToRight,
+    listAnimation
+  ]
 })
 export class ProjectListComponent implements OnInit {
+
+  @HostBinding('@routeAnim') state;
   projects =[
     {
+      "id": 1,
       "name": "企业协作平台",
       "desc": "这是一个企业内部项目",
       "coverImg": "assets/img/covers/0.jpg"
     },
     {
+      "id": 2,
       "name": "企业协作平台",
       "desc": "这是一个企业内部项目",
       "coverImg": "assets/img/covers/1.jpg"
@@ -44,6 +53,7 @@ export class ProjectListComponent implements OnInit {
     //通过subscribe获取从dialog传过来的数据
     dialogRef.afterClosed().subscribe(result => {
       console.log(`返回的数据为${result}`);
+      this.projects = [...this.projects, {id: 3, name: "企业协作平台",desc: "这是一个企业内部项目", coverImg: "assets/img/covers/4.jpg"}]
     })
 
 
@@ -71,7 +81,7 @@ export class ProjectListComponent implements OnInit {
   /**
    * 删除项目, 打开ConfirmDialogComponent组价, 这个组件是提示是否确认删除
    */
-  launchConfirmDialog() {
+  launchConfirmDialog(project) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: {
         title: '删除项目',
@@ -83,6 +93,7 @@ export class ProjectListComponent implements OnInit {
     dialogRef.afterClosed()
       .subscribe(result => {
         console.log(result);
+        this.projects = this.projects.filter(pro => pro.id !== project.id)
       });
   }
 

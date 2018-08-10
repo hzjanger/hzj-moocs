@@ -1,3 +1,4 @@
+
 <div class="bg-white">
   <div class="container">
     <div class="course-direction-box">
@@ -6,9 +7,11 @@
       </div>
       <div>
         <ul class="nav">
-          <li class="nav-item" *ngFor="let direction of course_direction">
-            <a class="nav-link" href="#">{{direction}}</a>
-          </li>
+          <span *ngFor="let direction of course_direction">
+            <li class="nav-item" (click)="directionChoiceClick(direction)">
+              <a class="nav-link" [class.active]="direction.direction === choice_direction">{{direction.direction}}</a>
+            </li>
+          </span>
         </ul>
       </div>
     </div>
@@ -18,10 +21,17 @@
       </div>
       <div>
         <ul class="nav">
-          <li class="nav-item" *ngFor="let direction of course_type">
-            <a class="nav-link" href="#">{{direction}}</a>
+          <li class="nav-item" (click)="classificationChoiceClick({direction: '全部', link: 'all', ascription: '全部'})">
+            <a class="nav-link" [class.active]="'全部' === choice_classification">全部</a>
           </li>
-
+          <span *ngFor="let direction of course_type">
+            <li
+              class="nav-item"
+              *ngIf="direction.ascription === choice_direction || choice_direction === '全部'"
+              (click)="classificationChoiceClick(direction)">
+              <a class="nav-link" [class.active]="direction.direction === choice_classification">{{direction.direction}}</a>
+            </li>
+          </span>
         </ul>
       </div>
     </div>
@@ -32,7 +42,9 @@
       <div>
         <ul class="nav">
           <li class="nav-item" *ngFor="let difficult of course_difficult">
-            <a class="nav-link" href="#">{{difficult}}</a>
+            <a class="nav-link"
+               [class.active]="difficult.link === choice_difficult"
+               (click)="difficultChoiceClick(difficult)">{{difficult.name}}</a>
           </li>
         </ul>
       </div>
@@ -45,8 +57,8 @@
     <div class="course-tool-box">
       <div>
         <mat-chip-list>
-          <mat-chip [class.active]="maxNew" color="primary" (click)="getAllNewCourse()">最新</mat-chip>
-          <mat-chip [class.active]="maxHot" color="primary" (click)="getAllHotCourses()">最热</mat-chip>
+          <mat-chip [class.active]="maxNew" color="primary" (click)="getNewCourse()">最新</mat-chip>
+          <mat-chip [class.active]="maxHot" color="primary" (click)="getHotCourses()">最热</mat-chip>
         </mat-chip-list>
       </div>
       <!--<div>-->
@@ -62,23 +74,13 @@
     </div>
     <div class="page-box">
       <div class="row" *ngIf="courses">
-        <div class="col-12">
+        <div class="col-12" *ngIf="courses && courses.totalPages >= 2">
           <app-pagination
             [current]="current"
-            [allCurrent]="allCurrent"></app-pagination>
-          <!--<div class="button-row">-->
-            <!--<button mat-button (click)="choicePage(1)">首页</button>-->
-            <!--<button *ngIf="current == 1" mat-button (click)="nextOrPer(-1)" disabled>上一页</button>-->
-            <!--<button *ngIf="current != 1" mat-button (click)="nextOrPer(-1)">上一页</button>-->
-            <!--<button class="page-current"-->
-                    <!--mat-button mat-mini-fab-->
-                    <!--color="primary"-->
-                    <!--*ngFor="let page of currentIndex"-->
-                    <!--(click)="choicePage(page)" [class.active]="page === current">{{page}}</button>-->
-            <!--<button *ngIf="current != courses.totalPages + 1" mat-button (click)="nextOrPer(1)">下一页</button>-->
-            <!--<button *ngIf="current == courses.totalPages + 1" mat-button (click)="nextOrPer(1)" disabled>下一页</button>-->
-            <!--<button mat-button (click)="choicePage(courses.totalPages + 1)">尾页</button>-->
-          <!--</div>-->
+            [allCurrent]="allCurrent"
+            [size]="courses.size"
+            [totalElements]="courses.totalElements"
+            (pageClick)="pageClick($event)"></app-pagination>
         </div>
       </div>
     </div>

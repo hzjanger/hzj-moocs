@@ -8,6 +8,8 @@ import {Observable} from 'rxjs';
 })
 export class RecordService {
 
+
+
   constructor(private http: HttpClient) { }
 
 
@@ -15,8 +17,8 @@ export class RecordService {
    * 得到用户最近学习的课程
    * @param usernickname    用户的昵称(昵称是唯一的)
    */
-  getAllRecords(usernickname: string): Observable<MyRecord> {
-    const url = `/user/record/allrecords?usernickname=${usernickname}`;
+  getAllRecords(usernickname: string, page: number): Observable<MyRecord> {
+    const url = `/olcp/user/record/allrecords?usernickname=${usernickname}&page=${page}`;
     return this.http.get<MyRecord>(url);
   }
 
@@ -27,5 +29,13 @@ export class RecordService {
   addRecord(myRecord: MyRecord): Observable<boolean> {
     const url = `/olcp/user/record/add`;
     return this.http.post<boolean>(url, myRecord);
+  }
+
+  /**
+   * 获取用户历史学习课程记录的信息(图片等)
+   */
+  getRecords(coursetailnum: string) {
+    const url = `/olcp/user/record/getrecords?coursetailnum=${coursetailnum}`;
+    return this.http.get(url);
   }
 }

@@ -1,32 +1,22 @@
-<!--<mat-nav-list>-->
-<!--<mat-list-item>-->
-<!--<img matListAvatar src="assets/img/java.jpg">-->
-<!--<h3 matLine>Message.from</h3>-->
-<!--<p matLine>-->
-<!--<span>Message.subject</span>-->
-<!--<span>Message.content</span>-->
-<!--</p>-->
-<!--</mat-list-item>-->
-<!--</mat-nav-list>-->
-<div class="course-item-box">
-  <div class="row">
+<div class="course-item-box" *ngIf="courses">
+  <div class="row" *ngFor="let course of courses.highlighted" style="margin-bottom: 1rem;">
     <div class="col-4">
       <a href="#" class="course-item-link">
-        <img src="assets/img/java.jpg" class="img-fluid">
+        <img [src]="course.entity.picturepath" class="img-fluid">
       </a>
     </div>
     <div class="col-8">
-      <h5><a href="#" class="course-item-link">java基础入门</a></h5>
+      <h5><a href="#" class="course-item-link" [innerHtml]="courses.courseName"></a></h5>
       <p>
-        <span>职业路径</span>
-        <span>JAVA攻城狮培养计划</span>
-        <span>3步 / 27课</span>
+        <span>课程</span>
+        <span>讲师:&nbsp;暂无</span>
+        <span>{{course.entity.coursedifficulty}}</span>
         <mat-icon svgIcon="person-outline"></mat-icon>
-        <span>5407</span>
+        <span>{{course.entity.coursestudypeople}}</span>
       </p>
-      <p>
-        想要入门学编程？多年一直活跃在编程语言排行版前列的Java是一个很好的选择。本路径将从Java基础语法、面向对象、常用工具类三部分，为你开启软件开发的大门！
-      </p>
+      <p [innerHtml]="courses.content"></p>
     </div>
   </div>
 </div>
+
+

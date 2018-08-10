@@ -1,9 +1,22 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, HostListener, Input, OnInit, Output} from '@angular/core';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-task-item',
   templateUrl: './task-item.component.html',
-  styleUrls: ['./task-item.component.scss']
+  styleUrls: ['./task-item.component.scss'],
+  animations: [
+    trigger('item', [
+      state('in', style({
+        borderLeftWidth: '3px'
+      })),
+      state('out', style({
+        borderLeftWidth: '8px'
+      })),
+      transition('in => out', animate('100ms ease-in')),
+      transition('out => in', animate('100ms ease-out'))
+    ])
+  ]
 })
 export class TaskItemComponent implements OnInit {
 
@@ -13,6 +26,8 @@ export class TaskItemComponent implements OnInit {
 
   //向父组件发送事件
   @Output() taskClick= new EventEmitter<void>();
+
+  widerPriority: string = 'in';
 
   constructor() { }
 
@@ -39,5 +54,14 @@ export class TaskItemComponent implements OnInit {
     ev.stopPropagation();
   }
 
+  @HostListener('mouseenter')
+  onMouseEnter() {
+    this.widerPriority = 'out';
+  }
+
+  @HostListener('mouseleave')
+  onMouseLeave() {
+    this.widerPriority = 'in';
+  }
 
 }

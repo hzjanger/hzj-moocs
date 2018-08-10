@@ -42,7 +42,8 @@ export class ExamHomeComponent implements OnInit {
     this.examTypeService.getExamType()
       .subscribe((data: ExamType[]) => {
         this.examType = data;
-        console.log(this.examType);
       })
   }
+
+
 }
